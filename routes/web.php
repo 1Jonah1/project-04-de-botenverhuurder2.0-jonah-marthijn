@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BoatController::class, 'index']); 
 
+Route::get('/boats', [BoatController::class, 'index']);
+
+
+
 Route::get('/dashboard', function () {
     return redirect('/');
 })->middleware(['auth', 'verified'])->name('dashboard');

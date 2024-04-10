@@ -30,7 +30,7 @@
             @endif
             <style>
         .banner {
-            /* background-image: url('images/banner.jpeg'); */
+            background-image: url('../views/images/banner.jpeg');
             background-color: red;
             background-size: cover;
             background-position: center;
