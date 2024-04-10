@@ -28,18 +28,79 @@
                 </div>
             </header>
             @endif
+            <style>
+        .banner {
+            /* background-image: url('images/banner.jpeg'); */
+            background-color: red;
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            flex-direction: column;
+        }
 
-            <main class="py-6">
-                <div class="max-w-7xl mx-auto grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-                    @foreach ($boats as $boat)
-                    <div class="bg-white shadow-md rounded-lg p-4">
-                        <h2 class="text-xl font-semibold mb-2">{{ $boat->name }}</h2>
-                        <p class="text-gray-600">Price: ${{ $boat->price_per_month }}</p>
-                        <p class="text-gray-600">Description: {{ $boat->description }}</p>
-                    </div>
-                    @endforeach
+        .banner-content {
+            text-align: center;
+            font-size: 46px;
+        }
+        .filter{
+            color: black;
+
+        }
+        .filter button{
+            background-color: blue;
+        }
+        .container {
+            padding-left: 120px;
+        }
+        .boats {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        
+        .link {
+            display: block;
+            width: 100px;
+            text-align: center;
+            margin-top: 10px;
+            background-color: blue;
+            color: white;
+        }
+        
+    </style>
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="text-5xl font-bold text-black">botenverhuur</h1>
+            <p class="text-black">Huur hier de beste boten</p>
+        </div>
+    </div>
+    <div class="container mx-auto">
+        <div class="boats grid grid-cols-3 gap-4">
+        @php $counter = 0 @endphp
+
+        @foreach($boats as $boat)
+            @if($counter < 6)
+                <div class="bg-white p-4 shadow-lg" style="width: 414px;">
+                    <img src="{{ $boat->image }}" alt="{{ $boat->name }}" class="w-full h-64 object-cover">
+                    <h2 class="text-xl font-bold">{{ $boat->name }}</h2>
+                    <p>{{ $boat->description }}</p>
+                    <p>€{{ $boat->price }}</p>
+                    <a :href="route('detailpage')" class=" link bg-blue-500 text-black p-2 rounded-lg">Bekijk boot</a>
+                    <!-- Overige velden van de boot -->
                 </div>
-            </main>
+                @php $counter++ @endphp
+            @else
+                @break
+            @endif
+        @endforeach
+        </div>
+
+            
         </div>
     </body>
 

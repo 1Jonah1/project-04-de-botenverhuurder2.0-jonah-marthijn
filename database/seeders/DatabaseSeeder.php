@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         for ($i = 1; $i <= 10; $i++) {
             Boat::create([
                 'name' => 'Boat ' . $i,
-                'discription' => 'Description for Boat ' . $i,
+                'description' => 'Description for Boat ' . $i,
                 'userid' => $i, // Assuming you have users already seeded
                 'price_per_month' => rand(1000, 5000), // Generate random price
                 'photo' => 'boat_' . $i . '.jpg', // Assuming you have images named boat_1.jpg, boat_2.jpg, etc.

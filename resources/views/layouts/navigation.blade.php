@@ -10,12 +10,14 @@
                     </a>
                 </div>
 
-                <!-- Navigation Links
+                <!-- Navigation Links-->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>-->
+                <x-nav-link :href="route('boats.index')" :active="request()->routeIs('boats.index')">
+                    {{ __('boats') }}
+                </x-nav-link>
+
+                </div>
+                
             </div>
 
             <!-- Settings Dropdown or Login Button -->
