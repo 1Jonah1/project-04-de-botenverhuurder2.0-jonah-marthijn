@@ -32,8 +32,6 @@
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
                     <p class="mt-2 text-sm text-gray-800">
-                        {{ __('Your email address is unverified.') }}
-                    <p class="mt-2 text-sm text-gray-800">
                         {{ __('Uw email adres is niet geverifieerd.') }}
 
                         <button form="send-verification" class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -51,7 +49,7 @@
         </div>
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <x-primary-button>{{ __('Opslaan') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
@@ -60,7 +58,7 @@
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
                     class="text-sm text-gray-600"
-                >{{ __('Saved.') }}</p>
+                >{{ __('Opgeslagen.') }}</p>
             @endif
         </div>
     </form>

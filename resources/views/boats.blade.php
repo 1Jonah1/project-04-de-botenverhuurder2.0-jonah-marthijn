@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="banner">
         <div class="banner-content">
-            <h1 class="text-5xl font-bold text-white">botenverhuur</h1>
-            <p class="text-white">Huur hier de beste boten</p>
+            <h1 class="text-5xl font-bold text-white">Botenverhuur</h1>
+            <p class="text-white">Huur hier de beste boten!</p>
         </div>
     </div>
     <div class="container mx-auto">
@@ -14,8 +14,8 @@
                             <h2 class="text-xl font-bold">{{ $boat->name }}</h2>
                             <p>{{ $boat->description }}</p>
                             <p>€{{ $boat->price_per_month }}</p>
-                            <a href="route('detailpage')" class="p-2 text-black bg-blue-500 rounded-lg link">Bekijk boot</a>
-                            <!-- Overige velden van de boot -->
+                            <a href="{{ route('detailpage') }}" class="p-2 text-black bg-blue-500 rounded-lg link" style="cursor: pointer;">Bekijk boot</a>
+                            
                         </div>
                 @endforeach
             @else
