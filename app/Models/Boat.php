@@ -16,10 +16,6 @@ class Boat extends Model
         'price_per_month',
         'photo'
     ];
-    public function showBoats()
-    {
-        $boats = Boat::all(); // Fetch all boats from the database
-        return view('boats', compact('boats'));
-    }
+    
 }
 

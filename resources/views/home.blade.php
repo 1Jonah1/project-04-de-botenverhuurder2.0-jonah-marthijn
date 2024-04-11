@@ -23,74 +23,30 @@
             <!-- Page Heading -->
             @if (isset($header))
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
                     {{ $header }}
                 </div>
             </header>
             @endif
-            <style>
-        .banner {
-            background-image: url('../views/images/banner.jpeg');
-            background-color: red;
-            background-size: cover;
-            background-position: center;
-            height: 600px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            flex-direction: column;
-        }
-
-        .banner-content {
-            text-align: center;
-            font-size: 46px;
-        }
-        .filter{
-            color: black;
-
-        }
-        .filter button{
-            background-color: blue;
-        }
-        .container {
-            padding-left: 120px;
-        }
-        .boats {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-        
-        .link {
-            display: block;
-            width: 100px;
-            text-align: center;
-            margin-top: 10px;
-            background-color: blue;
-            color: white;
-        }
-        
-    </style>
     <div class="banner">
         <div class="banner-content">
-            <h1 class="text-5xl font-bold text-black">botenverhuur</h1>
-            <p class="text-black">Huur hier de beste boten</p>
+            <img src="images/rename.png" alt="logo">
+            <h1 class="text-5xl font-bold text-white">botenverhuur</h1>
+            <p class="text-white">Huur hier de beste boten</p>
         </div>
     </div>
     <div class="container mx-auto">
-        <div class="boats grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-3 gap-4 boats">
         @php $counter = 0 @endphp
 
         @foreach($boats as $boat)
             @if($counter < 6)
-                <div class="bg-white p-4 shadow-lg" style="width: 414px;">
-                    <img src="{{ $boat->image }}" alt="{{ $boat->name }}" class="w-full h-64 object-cover">
+                <div class="p-4 bg-white shadow-lg" style="width: 414px;">
+                    <img src="{{ $boat->image }}" alt="{{ $boat->name }}" class="object-cover w-full h-64">
                     <h2 class="text-xl font-bold">{{ $boat->name }}</h2>
                     <p>{{ $boat->description }}</p>
                     <p>€{{ $boat->price }}</p>
-                    <a :href="route('detailpage')" class=" link bg-blue-500 text-black p-2 rounded-lg">Bekijk boot</a>
+                    <a :href="route('detailpage')" class="p-2 text-black bg-blue-500 rounded-lg link">Bekijk boot</a>
                     <!-- Overige velden van de boot -->
                 </div>
                 @php $counter++ @endphp
@@ -99,9 +55,6 @@
             @endif
         @endforeach
         </div>
-
-            
-        </div>
-    </body>
-
-    </html>
+    </div>
+</body>
+</html>
