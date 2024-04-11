@@ -11,7 +11,7 @@ class Boat extends Model
 
     protected $fillable = [
         'name',
-        'discription',
+        'description',
         'userid',
         'price_per_month',
         'photo'

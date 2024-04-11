@@ -14,7 +14,8 @@
                             <h2 class="text-xl font-bold">{{ $boat->name }}</h2>
                             <p>{{ $boat->description }}</p>
                             <p>€{{ $boat->price_per_month }}</p>
-                            <a href="{{ route('detailpage') }}" class="p-2 text-black bg-blue-500 rounded-lg link" style="cursor: pointer;">Bekijk boot</a>
+                            <a href="{{ route('boat.show', ['id' => $boat->id]) }}" class="p-2 text-black bg-blue-500 rounded-lg link" style="cursor: pointer;">Bekijk boot</a>
+
                             
                         </div>
                 @endforeach

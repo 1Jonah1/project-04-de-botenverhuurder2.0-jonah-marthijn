@@ -7,15 +7,19 @@ use App\Http\Controllers\DetailPageController;
 use Illuminate\Support\Facades\Route;
 
 
+
 Route::get('/', [BoatController::class, 'index']);
 
 Route::get('/boats', [BoatController::class, 'index']);
 
 Route::get('/boats', [BoatController::class, 'showBoats'])->name('boats.index');
 
+Route::get('/boat/{id}', [BoatController::class, 'show'])->name('boat.show');
+
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 Route::get('/detailpage', [DetailPageController::class, 'show'])->name('detailpage');
+
 
 
 
