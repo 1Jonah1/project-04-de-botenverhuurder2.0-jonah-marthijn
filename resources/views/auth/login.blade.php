@@ -36,7 +36,7 @@
                 {{ __('Forgot your password?') }}
             </a>
             @endif
-            <div class="ms-3" onclick="location='/register'">
+            <div class="ms-3" onclick="location='/register'" style="cursor: pointer;">
                 {{ __('Sign up') }}
             </div>
             <x-primary-button class="ms-3">
