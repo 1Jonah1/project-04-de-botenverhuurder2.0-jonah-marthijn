@@ -56,7 +56,7 @@
                 <!-- Logo -->
                 <div class="flex items-center shrink-0" >
                     <a href="{{ route('dashboard') }}" class="text-white" >
-                        <img src="images/rename.png" alt="" style="height: 53px;">
+                    <img src="{{ asset('images/rename.png') }}" alt="" style="height: 53px;">
                     </a>
                 </div>
 
