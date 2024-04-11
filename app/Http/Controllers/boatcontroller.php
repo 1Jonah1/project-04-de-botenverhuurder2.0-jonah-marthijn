@@ -33,4 +33,22 @@ class BoatController extends Controller
         return view('detailpage', compact('boat'));
     }
 
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function save(Request $request)
+    {
+        $boat = new Boat();
+        $boat->userid = auth()->user()->id;
+        $boat->name = $request->input('name');
+        $boat->description = $request->input('description');
+        $boat->photo = $request->input('photo');
+        $boat->price_per_month = $request->input('price_per_month');
+        $boat->save();
+
+        return redirect()->back()->with('success', 'Boot is succesvol toegevoegd.');
+    }
+
 }
