@@ -15,7 +15,7 @@
                                 <h2 class="mb-2 text-xl font-semibold">{{ $user->name }}</h2>
                                 <p class="text-gray-600">Email: {{ $user->email }}</p>
                                 <p class="text-gray-600">Role: {{ $user->role }}</p>
-                                <a :href="route('detailpage')" class="p-2 text-black bg-blue-500 rounded-lg link">Bekijk boot</a>
+                                <a href="{{ route('users.edit', $user) }}" class="p-2 text-black bg-blue-500 rounded-lg link">Bekijk account</a>
                             </div>
                         @endforeach
                     @else

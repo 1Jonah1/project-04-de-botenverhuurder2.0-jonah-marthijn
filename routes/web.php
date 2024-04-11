@@ -15,6 +15,11 @@ Route::get('/boats', [BoatController::class, 'showBoats'])->name('boats.index');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 
+Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+
+
+
+
 
 
 Route::get('/dashboard', function () {

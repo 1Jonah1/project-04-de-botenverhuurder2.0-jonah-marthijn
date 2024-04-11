@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+
+    public function edit(User $user)
+    {
+        return view('users.edit', compact('user'));
+    }
 }
