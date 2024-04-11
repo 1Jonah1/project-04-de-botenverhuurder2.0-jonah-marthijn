@@ -16,6 +16,6 @@ class Boat extends Model
         'price_per_month',
         'photo'
     ];
-    
+
 }
 

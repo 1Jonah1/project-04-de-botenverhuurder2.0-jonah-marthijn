@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::create('bookingen', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->foreignId('userid')->constrained();
+            $table->foreignId('boatid')->constrained();
+            $table->date('startdatum');
+            $table->date('einddatum');
 
-            $table->string('role')->default('admin');
-            //
         });
     }
 
@@ -23,8 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('bookingen');
     }
 };

@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Boat ' . $i,
                 'description' => 'Description for Boat ' . $i,
                 'userid' => $i,
-                'price_per_month' => rand(1000, 5000), 
+                'price_per_month' => rand(1000, 5000),
+                'photo' => 'boat_' . $i . '.jpg', // Assuming you have images named boat_1.jpg, boat_2.jpg, etc.
+                'price_per_month' => rand(1000, 5000),
                 'photo' => 'boat_' . $i . '.jpg',
             ]);
         }

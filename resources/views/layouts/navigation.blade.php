@@ -56,7 +56,7 @@
                 <!-- Logo -->
                 <div class="flex items-center shrink-0" >
                     <a href="{{ route('dashboard') }}" class="text-white" >
-                        <img src="{{ asset('images/rename.png') }}" alt="" style="height: 53px;">
+                        <img src="images/rename.png" alt="" style="height: 53px;">
                     </a>
                 </div>
 
@@ -65,11 +65,23 @@
                     <x-nav-link :href="route('boats.index')" :active="request()->routeIs('boats.index')" class="text-white">
                         {{ __('Boten') }}
                     </x-nav-link>
-                    @if (Auth::check() && Auth::user()->role == 'user')
+                    @if (Auth::check() && Auth::user()->role == 'admin')
                         <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')" class="text-white">
                             {{ __('Users') }}
                         </x-nav-link>
                     @endif
+                    @if (Auth::check())
+
+                    <x-nav-link href="{{ route('boats.create') }}" :active="request()->routeIs('boats.create')" class="text-white">
+                        {{ __('Boot toevoegen') }}
+                    </x-nav-link>
+
+                    <x-nav-link href="{{ route('boats.ownboats') }}" :active="request()->routeIs('boats.ownboats')" class="text-white">
+                        {{ __('Boot overzicht') }}
+                    </x-nav-link>
+                    
+                    @endif
+
                 </div>
 
             </div>
@@ -135,29 +147,28 @@
 
         <!-- Responsive Settings Options -->
         @auth
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
+<div class="pt-4 pb-1 border-t border-gray-200">
+                <div class="px-4">
+                    <div class="text-base font-medium text-gray-800">{{ Auth::user()->name }}</div>
+                    <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
+                </div>
 
-            <div class="mt-3 space-ya-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Account') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Uitloggen') }}
+<div class="mt-3 space-ya-1">
+                    <x-responsive-nav-link :href="route('profile.edit')">
+                        {{ __('Account') }}
                     </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
+
+<!-- Authentication -->
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+<x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
+                                                                    this.closest('form').submit();">
+                            {{ __('Uitloggen') }}
+                        </x-responsive-nav-link>
+                        </form>
+                        </div>
+                        </div>
         @endauth
     </div>
 </nav>

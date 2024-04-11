@@ -55,4 +55,8 @@ class User extends Authenticatable
     {
         return view('users.edit', compact('user'));
     }
-}
+
+    public function boats()
+    {
+        return $this->hasMany(Boat::class, 'userid');
+}}
