@@ -10,7 +10,9 @@ Route::get('/', [BoatController::class, 'index']);
 
 Route::get('/boats', [BoatController::class, 'index']);
 
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/boats', [BoatController::class, 'showBoats'])->name('boats.index');
+
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
 
 
 
@@ -18,17 +20,6 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/dashboard', function () {
     return redirect('/');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/boats', function () {
-    return view('boats');
-})->name('boats.index');
-
-Route::get('/users', function () {
-    return view('users');
-})->name('users.index');
-
-
-
 
 
 Route::middleware('auth')->group(function () {

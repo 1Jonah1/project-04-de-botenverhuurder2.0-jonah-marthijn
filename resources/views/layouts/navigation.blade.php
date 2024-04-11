@@ -34,6 +34,10 @@
             flex-direction: row;
             flex-wrap: wrap;
         }
+        .table-container {
+            display: flex;
+            justify-content: center;
+        }
 
 
         .link {
@@ -61,9 +65,11 @@
                     <x-nav-link :href="route('boats.index')" :active="request()->routeIs('boats.index')" class="text-white">
                         {{ __('Boten') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users')" class="text-white">
-                        {{ __('Users') }}
-                    </x-nav-link>
+                    @if (Auth::check() && Auth::user()->role == 'user')
+                        <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')" class="text-white">
+                            {{ __('Users') }}
+                        </x-nav-link>
+                    @endif
                 </div>
 
             </div>

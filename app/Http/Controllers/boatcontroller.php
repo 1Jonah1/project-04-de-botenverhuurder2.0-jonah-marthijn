@@ -11,12 +11,16 @@ class BoatController extends Controller
     {
         $boats = Boat::all();
         return view('home', ['boats' => $boats]);
+
+
+
     }
 
     public function showBoats()
     {
-        $boats = Boat::all(); 
-        return view('boats', ['boats' => $boats]); 
+        $boats = Boat::all();
+        return view('boats', ['boats' => $boats]);
     }
+
 
 }
